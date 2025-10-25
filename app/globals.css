@@ -8,8 +8,41 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-montserrat), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), 'Courier New', monospace;
+  
+  /* Custom theme colors - Based on #1E69B8 */
+  --color-primary: #1E69B8;
+  --color-primary-50: #f0f7ff;
+  --color-primary-100: #e0efff;
+  --color-primary-200: #bae0ff;
+  --color-primary-300: #7cc8ff;
+  --color-primary-400: #36acff;
+  --color-primary-500: #1E69B8;
+  --color-primary-600: #1a5ca8;
+  --color-primary-700: #164f98;
+  --color-primary-800: #124288;
+  --color-primary-900: #0f3678;
+  --color-primary-950: #0a2458;
+  
+  /* Additional primary variants */
+  --color-primary-light: #4d8dd6;
+  --color-primary-lighter: #7db1e4;
+  --color-primary-lightest: #acd5f2;
+  --color-primary-dark: #1a5ca8;
+  --color-primary-darker: #164f98;
+  --color-primary-darkest: #124288;
+  
+  /* Primary with opacity variants */
+  --color-primary-10: rgba(30, 105, 184, 0.1);
+  --color-primary-20: rgba(30, 105, 184, 0.2);
+  --color-primary-30: rgba(30, 105, 184, 0.3);
+  --color-primary-40: rgba(30, 105, 184, 0.4);
+  --color-primary-50-opacity: rgba(30, 105, 184, 0.5);
+  --color-primary-60: rgba(30, 105, 184, 0.6);
+  --color-primary-70: rgba(30, 105, 184, 0.7);
+  --color-primary-80: rgba(30, 105, 184, 0.8);
+  --color-primary-90: rgba(30, 105, 184, 0.9);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +55,101 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), system-ui, -apple-system, sans-serif;
+}
+
+/* Apply Montserrat as default sans font */
+* {
+  font-family: var(--font-montserrat), system-ui, -apple-system, sans-serif;
+}
+
+/* Hero background images from Unsplash */
+.hero-bg-1 {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-2 {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('https://images.unsplash.com/photo-1632823471565-1ecdf7c0d8e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-3 {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2874&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Custom Swiper Pagination Styles */
+.swiper-pagination-bullet-custom {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-custom:hover {
+  background: rgba(255, 255, 255, 0.75);
+  transform: scale(1.1);
+}
+
+.swiper-pagination-bullet-active-custom {
+  background: white;
+  transform: scale(1.25);
+}
+
+/* Services Carousel Pagination */
+.services-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #d1d5db;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.services-pagination-bullet:hover {
+  background: #9ca3af;
+  transform: scale(1.1);
+}
+
+.services-pagination-bullet-active {
+  background: var(--color-primary);
+  transform: scale(1.25);
+}
+
+/* Gallery Carousel Styles */
+.gallery-swiper {
+  padding: 50px 0;
+}
+
+.gallery-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.gallery-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+
+.gallery-pagination-bullet-active {
+  background: var(--color-primary);
+  transform: scale(1.25);
 }
