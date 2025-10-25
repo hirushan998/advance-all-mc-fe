@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import Link from 'next/link';
-import GoogleLoginButton from '@/components/auth/GoogleLoginButton';
+import { GoogleLoginButton } from '@/components/auth/GoogleLoginButton';
 
 const BookingLogin = () => {
   const { login } = useAuth();

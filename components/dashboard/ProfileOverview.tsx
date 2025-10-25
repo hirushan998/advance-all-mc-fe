@@ -24,7 +24,7 @@ export default function ProfileOverview() {
           <User className="h-10 w-10 text-blue-600" />
         </div>
         <h3 className="text-lg font-medium text-gray-900">
-          {user?.name || 'User Name'}
+          {user ? `${user.firstName} ${user.lastName}` : 'User Name'}
         </h3>
         <p className="text-gray-500">Customer</p>
       </div>
@@ -36,11 +36,11 @@ export default function ProfileOverview() {
         </div>
         <div className="flex items-center text-sm">
           <Phone className="h-4 w-4 text-gray-400 mr-3" />
-          <span className="text-gray-600">{user?.phone || '+1 (555) 123-4567'}</span>
+          <span className="text-gray-600">+1 (555) 123-4567</span>
         </div>
         <div className="flex items-center text-sm">
           <MapPin className="h-4 w-4 text-gray-400 mr-3" />
-          <span className="text-gray-600">{user?.address || 'City, State'}</span>
+          <span className="text-gray-600">City, State</span>
         </div>
       </div>
 
