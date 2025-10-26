@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 
@@ -15,24 +15,24 @@ const Hero = () => {
   const slides = [
     {
       id: 1,
-      bgClass: "hero-bg-1",
-      title: "MAKE YOUR CAR LAST LONGER",
+      image: "/hero/car-inspection.jpg",
+      title: "Drive Away with Confidence",
       subtitle:
-        'Expert Oil Change, April 15. Only if you have a "5" on your license plate.',
+        "Mobile pre-purchase inspections across Australia. Get peace of mind before you buy",
     },
     {
       id: 2,
-      bgClass: "hero-bg-2",
-      title: "PROFESSIONAL MECHANICAL SERVICES",
+      image: "/hero/car-inspection-2.jpg",
+      title: "Expert Vehicle Inspections",
       subtitle:
-        "Complete automotive repair and maintenance solutions for all vehicle types.",
+        "We come to you for a full vehicle check — quick, clear, and reliable",
     },
     {
       id: 3,
-      bgClass: "hero-bg-3",
-      title: "TRUSTED BY THOUSANDS",
+      image: "/hero/heavy-inspection.jpg",
+      title: "Trusted by Aussie Car Buyers",
       subtitle:
-        "Over 20 years of experience in automotive repair and customer satisfaction.",
+        "Accurate, independent reports that help you make the right choice",
     },
   ];
 
@@ -64,36 +64,38 @@ const Hero = () => {
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div className="relative h-full">
-              {/* Background */}
-              <div
-                className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${slide.bgClass}`}
+              {/* Background Image */}
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                className="object-cover"
+                priority={slide.id === 1}
               />
+
+              {/* Light Overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/30"></div>
 
               {/* Content */}
               <div className="relative z-10 flex items-center justify-center h-full">
                 <div className="text-center text-white px-4 max-w-4xl mx-auto">
-                  {/* Icon */}
-                  <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-primary rounded-full">
-                      <svg
-                        className="w-10 h-10 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                  {/* Title with enhanced styling */}
+                  <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight drop-shadow-lg">
                     {slide.title}
                   </h1>
 
-                  {/* Subtitle */}
-                  <p className="text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+                  {/* Subtitle with enhanced styling */}
+                  <p className="text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
                     {slide.subtitle}
                   </p>
+
+                  {/* Enhanced CTA Button */}
+                  <Link
+                    href="/book-inspection"
+                    className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-10 text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:border-white/20"
+                  >
+                    Book an Inspection
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
@@ -13,15 +14,15 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about-us" },
     { name: "Services", href: "/services" },
-    { name: "Gallery", href: "/gallery" },
+    { name: "About", href: "/about-us" },
+    { name: "Areas", href: "/areas" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <header className="bg-white">
-      {/* Top contact bar */}
+    <>
+      {/* Top contact bar - Static */}
       <div className="bg-gray-100 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3 text-sm text-gray-600">
@@ -138,7 +139,7 @@ const Header = () => {
                 /* Not logged in - show login/register links */
                 <>
                   {/* User Icon */}
-                  <div className="flex items-center space-x-1 text-gray-600">
+                  <div className="flex items-center space-x-1 text-gray-600 mr-2">
                     <svg
                       className="w-5 h-5"
                       fill="currentColor"
@@ -177,17 +178,21 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main navigation */}
-      <nav className="bg-white border-b border-gray-100">
+      {/* Main navigation - Sticky */}
+      <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             {/* Logo/Company Name */}
             <div className="shrink-0">
-              <Link
-                href="/"
-                className="text-xl font-bold text-primary tracking-wide"
-              >
-                AAM
+              <Link href="/">
+                <div className="relative block w-48 h-16">
+                  <Image
+                    src="/aam.png"
+                    alt="Advanced All Mechanical Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </Link>
             </div>
 
@@ -200,7 +205,7 @@ const Header = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                      className={`px-3 py-2 text-base font-medium transition-colors duration-200 ${
                         isActive
                           ? "text-primary border-b-2 border-primary"
                           : "text-gray-600 hover:text-primary"
@@ -215,7 +220,7 @@ const Header = () => {
               {/* Book An Inspection Button */}
               <Link
                 href="/book-inspection"
-                className="ml-8 inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-400 to-primary-600 text-white text-sm font-semibold hover:from-primary-500 hover:to-primary-700 transform hover:transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="ml-8 inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-400 to-primary-600 text-white text-base font-semibold hover:from-primary-500 hover:to-primary-700 transform hover:transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Book An Inspection
               </Link>
@@ -298,7 +303,7 @@ const Header = () => {
           )}
         </div>
       </nav>
-    </header>
+    </>
   );
 };
 

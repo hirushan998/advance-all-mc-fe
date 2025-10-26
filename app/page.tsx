@@ -3,7 +3,9 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import VehiclesServiced from "../components/VehiclesServiced";
 import ServicesCarousel from "../components/ServicesCarousel";
 import InspectionProcess from "../components/InspectionProcess";
-import TestimonialBrands from "../components/TestimonialBrands";
+import GoogleReviews from "../components/GoogleReviews";
+import Testimonials from "../components/Testimonials";
+import TrustedBrands from "../components/TrustedBrands";
 import GalleryCarousel from "../components/GalleryCarousel";
 import Footer from "../components/Footer";
 
@@ -12,10 +14,11 @@ export default function Home() {
     <div>
       <Hero />
       <WhyChooseUs />
-      <VehiclesServiced />
-      <ServicesCarousel />
       <InspectionProcess />
-      <TestimonialBrands />
+      <ServicesCarousel />
+      <VehiclesServiced />
+      <GoogleReviews />
+      <TrustedBrands />
       <GalleryCarousel />
       <Footer />
     </div>
